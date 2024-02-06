@@ -1,0 +1,20 @@
+version: "3"
+services:
+  apache_v3:
+    image: task14_apache:v5
+    ports:
+      - 8080:8080
+    networks:
+      - task14
+
+
+  nginx:    
+    image: nginx:v5
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - task14
+      
+networks:
+  task14:
