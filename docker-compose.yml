@@ -1,20 +1,21 @@
 version: "3"
 services:
-  apache_v3:
-    image: task14_apache:v5
+  apache:
+    image: apache:v1
+    container_name: apache_container
     ports:
       - 8080:8080
     networks:
-      - task14
+      - task17
 
-
-  nginx:    
-    image: nginx:v5
+  nginx:
+    image: nginx:v1
+    container_name: nginx_container
     ports:
       - 80:80
       - 443:443
     networks:
-      - task14
-      
+      - task17
+
 networks:
-  task14:
+  task17:
