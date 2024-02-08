@@ -1,7 +1,7 @@
 version: "3"
 services:
   apache:
-    image: apache:v1
+    image: polinavngrd/apache:latest
     container_name: apache_container
     ports:
       - 8080:8080
@@ -9,7 +9,7 @@ services:
       - task17
 
   nginx:
-    image: nginx:v1
+    image: polinavngrd/nginx:latest
     container_name: nginx_container
     ports:
       - 80:80
