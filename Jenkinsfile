@@ -16,7 +16,7 @@ pipeline {
                 }
             }
         }
-        }
+    
         stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'a690cedc-e357-4375-81ce-8f76041a4641', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
