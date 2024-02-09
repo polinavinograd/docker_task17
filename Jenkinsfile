@@ -57,7 +57,10 @@ pipeline {
         stage ("Deploy on instances") {
             steps {
                 dir('ansible') {
-                    sh """ansible-playbook playbook.yml -e NGINX_TAG=${env.NGINX_TAG} -e APACHE_TAG=${env.APACHE_TAG}"""
+                    sh """
+                    pwd
+                    ls -al
+                    ansible-playbook playbook.yml -e NGINX_TAG=${env.NGINX_TAG} -e APACHE_TAG=${env.APACHE_TAG}"""
                 }
             }
         }
