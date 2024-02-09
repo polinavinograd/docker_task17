@@ -8,7 +8,7 @@ pipeline {
                 dir('docker_task17') {
                     script {
                         if (fileExists('.git')) {
-                            sh 'git pull'
+                            sh 'git pull origin master'
                         } else {
                             sh 'git clone https://github.com/polinavinograd/docker_task17.git .'
                         }
