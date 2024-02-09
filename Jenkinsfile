@@ -6,10 +6,12 @@ pipeline {
         stage('Clone') {
             steps {
                 dir('docker_task17') {
-                    if (fileExists('.git')) {
-                        sh 'git pull'
-                    } else {
-                        sh 'git clone https://github.com/polinavinograd/docker_task17.git .'
+                    script {
+                        if (fileExists('.git')) {
+                            sh 'git pull'
+                        } else {
+                            sh 'git clone https://github.com/polinavinograd/docker_task17.git .'
+                        }
                     }
                 }
             }
