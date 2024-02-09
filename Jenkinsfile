@@ -3,20 +3,20 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                sh """rm -rf docker_task17"""
-                dir('docker_task17') {
-                    git (
-                        url: "https://github.com/polinavinograd/docker_task17.git",
-                        branch: "master",
+        // stage('Clone') {
+        //     steps {
+        //         sh """rm -rf docker_task17"""
+        //         dir('docker_task17') {
+        //             git (
+        //                 url: "https://github.com/polinavinograd/docker_task17.git",
+        //                 branch: "master",
 
-                        changelog: true,
-                        poll: true
-                    )
-                }
-            }
-        }
+        //                 changelog: true,
+        //                 poll: true
+        //             )
+        //         }
+        //     }
+        // }
     
         stage('Docker Login') {
             steps {
