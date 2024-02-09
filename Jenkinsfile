@@ -2,6 +2,21 @@ pipeline {
     agent any
 
     stages {
+
+        stage('Clone') {
+            steps {
+                dir('docker_task17') {
+                    git (
+                        url: "https://github.com/polinavinograd/docker_task17.git",
+                        branch: "master",
+
+                        changelog: true,
+                        poll: true
+                    )
+                }
+            }
+        }
+        }
         stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'a690cedc-e357-4375-81ce-8f76041a4641', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
