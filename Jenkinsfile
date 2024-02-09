@@ -3,20 +3,17 @@ pipeline {
 
     stages {
 
-        // stage('Clone') {
-        //     steps {
-        //         sh """rm -rf docker_task17"""
-        //         dir('docker_task17') {
-        //             git (
-        //                 url: "https://github.com/polinavinograd/docker_task17.git",
-        //                 branch: "master",
-
-        //                 changelog: true,
-        //                 poll: true
-        //             )
-        //         }
-        //     }
-        // }
+        stage('Clone') {
+            steps {
+                dir('docker_task17') {
+                    if (fileExists('.git')) {
+                        sh 'git pull'
+                    } else {
+                        sh 'git clone https://github.com/polinavinograd/docker_task17.git .'
+                    }
+                }
+            }
+        }
     
         stage('Docker Login') {
             steps {
@@ -58,8 +55,6 @@ pipeline {
             steps {
                 dir('ansible') {
                     sh """
-                    pwd
-                    ls -al
                     ansible-playbook playbook.yml -e NGINX_TAG=${env.NGINX_TAG} -e APACHE_TAG=${env.APACHE_TAG}"""
                 }
             }
