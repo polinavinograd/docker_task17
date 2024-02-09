@@ -33,6 +33,7 @@ pipeline {
                         sh """
                             docker build -t polinavngrd/apache:${env.APACHE_TAG} .
                             docker push polinavngrd/apache:${env.APACHE_TAG}
+                            docker rmi -f polinavngrd/apache:${env.APACHE_TAG}
                         """
                     }
                 }
@@ -47,6 +48,7 @@ pipeline {
                         sh """
                             docker build -t polinavngrd/nginx:${env.NGINX_TAG} .
                             docker push polinavngrd/nginx:${env.NGINX_TAG}
+                            docker rmi -f polinavngrd/nginx:${env.APACHE_TAG}
                         """
                     }
                 }
