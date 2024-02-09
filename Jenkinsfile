@@ -5,6 +5,7 @@ pipeline {
 
         stage('Clone') {
             steps {
+                sh """rm -rf docker_task17"""
                 dir('docker_task17') {
                     git (
                         url: "https://github.com/polinavinograd/docker_task17.git",
